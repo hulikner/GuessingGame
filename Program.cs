@@ -13,27 +13,33 @@ namespace GuessingGame
             Console.WriteLine("Hard = 3");
             int level = Int32.Parse(Console.ReadLine());
             int guesses = 0;
+
             if (level == 1)
             {
                 guesses = 9;
-            }else if(level == 2)
+            }
+            else if(level == 2)
             {
                 guesses = 7;
-            }else if(level == 3)
+            }
+            else if(level == 3)
             {
                 guesses = 5;
-            }else
+            }
+            else
             {
                 guesses = 2147483647;
             }
 
+            Random r = new Random();
+            int secretNumber = r.Next(1, 100);
 
-            int secretNumber = 42;
             for (int i = 1; i<guesses; i++)
             {
                 Console.WriteLine("Guess the secret number!");
                 int guess = Int32.Parse(Console.ReadLine());
                 Console.WriteLine($"Your guess {guess} ({i})");
+                Console.WriteLine($"You have {guesses - i - 1} guesses left");
                 if (guess == secretNumber)
                 {
                     Console.WriteLine("Success!");
